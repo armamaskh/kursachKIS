@@ -1,0 +1,2620 @@
+ui_interface.py
+
+
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+from PySide2.QtCharts import QtCharts
+from Custom_Widgets import QCustomSlideMenu, QCustomQStackedWidget
+import sqlite3
+
+
+import QSS_Resources_rc
+
+
+
+
+
+import os
+import datetime
+
+import requests
+from bs4 import BeautifulSoup
+
+
+
+class outLOGs:
+    def __init__(self):
+        return
+
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+        file_path = os.path.join("guts", file_name)
+        if not  os.path.exists(file_path):
+            outLOGs.write_text_to_file(file_name, file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file(file_name, file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file(file_name, file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+        
+        
+        
+
+
+    
+if __name__ == "__main__":
+    P = PARSING()
+    P.fSTAGE()
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+
+import requests
+from bs4 import BeautifulSoup
+
+
+
+class outLOGs:
+    def __init__(self):
+        return
+
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+        file_path = os.path.join("guts", file_name)
+        if not  os.path.exists(file_path):
+            outLOGs.write_text_to_file(file_name, file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file(file_name, file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file(file_name, file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        PARSING.sSTAGE(name_OP,address)
+
+        # name_OP.clear()
+        # address.clear()
+
+    def sSTAGE(name_OP, address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information[13][13] = []
+
+
+                # for i in range(len(url)):
+        #     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+        #     resp = requests.get(url[i], headers=headers).text
+        #     soup = BeautifulSoup(resp, "lxml")
+        #     about_us = soup.find(class_ = 'bring-left')
+        #     line = about_us.find_all('a')[-1]
+
+        #     s_address.append("https://cchgeu.ru" + line['href'])
+        #     s_title.append(line.text)
+
+
+        #     about_us = soup.find(class_ = 'program-detail')
+        #     inf = about_us.find_all('p')
+        #     for j in inf:
+        #         predl = []
+        #         if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\r', ''))
+        #         else: continue
+        #         s_information.append(predl)
+        #     time.sleep(10)
+        
+        outLOGs.write_text_to_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        print(len(s_address))
+        print(len(s_title))
+        print(s_information)
+
+        
+        
+        
+
+
+    
+if __name__ == "__main__":
+    P = PARSING()
+    P.fSTAGE()
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import os
+import datetime
+import time
+
+import requests
+from bs4 import BeautifulSoup
+
+
+
+class outLOGs:
+    def __init__(self):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+        file_path = os.path.join("guts", file_name)
+
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n")
+                file.write("_поставте пять пж\n\n")
+                print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+
+    def write_text_to_file(self, rec_text):
+        try:
+            with open(self.file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {self.file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        super().__init__()
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        self.write_text_to_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n" )
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        self.write_text_to_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        self.sSTAGE(name_OP,address)
+
+        # name_OP.clear()
+        # address.clear()
+
+    def sSTAGE(name_OP, address):
+        url = address
+
+        s_address = [] 
+        s_title = []
+        s_information= []
+
+
+        for i in range(len(url)):
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\r', ''))
+                else: continue
+                s_information.append(predl)
+            time.sleep(10)
+        
+        outLOGs.write_text_to_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        print(len(s_address))
+        print(len(s_title), "\n\n")
+        print(s_information)
+
+            
+            # print(s_address)
+            # print(s_title)
+    
+
+        
+        
+        
+
+
+    
+if __name__ == "__main__":
+    PARSING().fSTAGE()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+
+import requests
+from bs4 import BeautifulSoup
+
+
+
+class outLOGs:
+    a = True
+    file_name = ''
+    file_path = ''
+    def __init__(self):
+        return
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        if(outLOGs.a == True): 
+            outLOGs.file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+            outLOGs.file_path = os.path.join("guts",  outLOGs.file_name)
+        outLOGs.a = False
+        if not  os.path.exists( outLOGs.file_path):
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        PARSING.sSTAGE(address)
+
+        # name_OP.clear()
+        # address.clear()
+
+    def sSTAGE(address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information = []
+
+
+        for i in range(len(url)):
+            information = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\r', '').replace('\xa0', ' ') )
+                else: continue
+                information.append(predl)
+            time.sleep(10)
+            s_information.append(information)
+        
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        print(len(s_address))
+        print(s_title , "\n\n")
+        print(s_information)
+        print(len(s_information))
+
+        
+        
+        
+
+
+    
+if __name__ == "__main__":
+    PARSING().fSTAGE()
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+
+import requests
+from bs4 import BeautifulSoup
+
+
+
+class outLOGs:
+    a = True
+    file_name = ''
+    file_path = ''
+    def __init__(self):
+        return
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        if(outLOGs.a == True): 
+            outLOGs.file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+            outLOGs.file_path = os.path.join("guts",  outLOGs.file_name)
+        outLOGs.a = False
+        if not  os.path.exists( outLOGs.file_path):
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        PARSING.sSTAGE(address)
+
+        name_OP.clear()
+        address.clear()
+
+    def sSTAGE(address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information = []
+        
+        for i in range((len(url))):
+            information = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\r', '').replace('\xa0', ' ') )
+                else: continue
+                information.append(predl)
+            time.sleep(10)
+            s_information.append(information)
+        
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        print(len(s_address))
+        print(s_title , "\n\n")
+        print(s_information)
+        print(len(s_information))
+        PARSING.thSTAGE(s_address)
+        s_address.clear()
+        s_title.clear()
+        s_information.clear()
+    
+    def thSTAGE(address):
+        url = address
+        data = [ ]
+ 
+        for i in range(len(url)):
+            result = []
+            th_title = []
+            th_name = []
+            th_address = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            file = soup.find(class_ = 'program-detail')
+            title = file.find_all('h5')
+            for j in title:
+                th_title.append(j.text) 
+            adres = soup.find_all(class_ = 'wb-ba')
+            for i in adres:
+                th_name.append(i.text)
+            for i in adres:
+                th_address.append("https://cchgeu.ru" +i['href'])
+
+            for j in range(3): 
+                result.append(th_title)
+                result.append(th_name)
+                result.append(th_address)
+        data.append(result)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Раздел файлов, название каждого имеющегося файла и его ссылка для скачивания получены.\n")
+        
+            
+
+
+        
+
+        
+        
+        
+
+
+    
+if __name__ == "__main__":
+    PARSING().fSTAGE()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+import sys
+
+import sqlite3
+
+import requests
+from bs4 import BeautifulSoup
+
+
+class outLOGs:
+    a = True
+    file_name = ''
+    file_path = ''
+    def __init__(self):
+        return
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        if(outLOGs.a == True): 
+            outLOGs.file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+            outLOGs.file_path = os.path.join("guts",  outLOGs.file_name)
+        outLOGs.a = False
+        if not  os.path.exists( outLOGs.file_path):
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        PARSING.sSTAGE(address)
+
+        name_OP.clear()
+        address.clear()
+
+    def sSTAGE(address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information = []
+
+        for i in range(1):
+            information = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\r', '').replace('\xa0', ' ') )
+                else: continue
+                information.append(predl)
+            time.sleep(10)
+            s_information.append(information)
+        
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        print(s_information)
+        print(len(s_information))
+        PARSING.thSTAGE(s_address)
+        s_address.clear()
+        s_title.clear()
+        s_information.clear()
+    
+    def thSTAGE(address):
+        url = address
+        data = [ ]
+ 
+        for i in range(len(url)):
+            result = []
+            th_title = []
+            th_name = []
+            th_address = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            file = soup.find(class_ = 'program-detail')
+            title = file.find_all('h5')
+            for j in title:
+                th_title.append(j.text) 
+            adres = soup.find_all(class_ = 'wb-ba')
+            for i in adres:
+                th_name.append(i.text)
+            for i in adres:
+                th_address.append("https://cchgeu.ru" +i['href'])
+
+            for j in range(3): 
+                result.append(th_title)
+                result.append(th_name)
+                result.append(th_address)
+        data.append(result)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Раздел файлов, название каждого имеющегося файла и его ссылка для скачивания получены.\n")
+
+
+class BD(outLOGs):
+    bd_name = "OTHENASHKOTORYNANEBESAH.db"
+    bd = ''
+    def __init__(self):
+        return
+
+    def create_BD(self):
+        if not os.path.exists('resources'):
+            print('создание папки с ресурсами')
+            os.makedirs('resources')
+        BD.bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        BD.bd = os.path.join("resources", BD.bd )
+        conn = sqlite3.connect(BD.bd_name)
+        cursor = conn.cursor()
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            TITLE_OP TEXT,
+            LINK_OP TEXT
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ABOUT_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_OP INTEGER,
+            TITLE_OP TEXT,
+            LINK_OP TEXT,
+            ABOUT TEXT,
+            FOREIGN KEY (id_OP) REFERENCES OP(id)
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS FILES_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_ABOUT_OP INTEGER,
+            FILE_NAME TEXT,
+            FILE_LINK TEXT
+            FOREIGN KEY (id_ABOUT_OP) REFERENCES ABOUT_OP(id)
+        )""")
+        
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Создание новой директории с базой данных\n")
+    
+    def filling_BD(text):
+        conn = sqlite3.connect(BD.bd_name)
+    
+if __name__ == "__main__":
+    PARSING().fSTAGE()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+import sys
+
+import sqlite3
+
+import requests
+from bs4 import BeautifulSoup
+
+
+class outLOGs:
+    a = True
+    file_name = ''
+    file_path = ''
+    def __init__(self):
+        return
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        if(outLOGs.a == True): 
+            outLOGs.file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+            outLOGs.file_path = os.path.join("guts",  outLOGs.file_name)
+        outLOGs.a = False
+        if not  os.path.exists( outLOGs.file_path):
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        PARSING.sSTAGE(address)
+
+        name_OP.clear()
+        address.clear()
+
+    def sSTAGE(address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information = []
+
+        for i in range(1):
+            information = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\r', '').replace('\xa0', ' ') )
+                else: continue
+                information.append(predl)
+            time.sleep(10)
+            s_information.append(information)
+        
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        print(s_information)
+        print(len(s_information))
+        PARSING.thSTAGE(s_address)
+        s_address.clear()
+        s_title.clear()
+        s_information.clear()
+    
+    def thSTAGE(address):
+        url = address
+        data = [ ]
+ 
+        for i in range(len(url)):
+            result = []
+            th_title = []
+            th_name = []
+            th_address = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            file = soup.find(class_ = 'program-detail')
+            title = file.find_all('h5')
+            for j in title:
+                th_title.append(j.text) 
+            adres = soup.find_all(class_ = 'wb-ba')
+            for i in adres:
+                th_name.append(i.text)
+            for i in adres:
+                th_address.append("https://cchgeu.ru" +i['href'])
+
+            for j in range(3): 
+                result.append(th_title)
+                result.append(th_name)
+                result.append(th_address)
+        data.append(result)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Раздел файлов, название каждого имеющегося файла и его ссылка для скачивания получены.\n")
+
+
+class BD(outLOGs):
+    bd_name = "OTHENASHKOTORYNANEBESAH.db"
+    bd = ''
+    def __init__(self):
+        return
+
+    def create_BD(self):
+        if not os.path.exists('resources'):
+            print('создание папки с ресурсами')
+            os.makedirs('resources')
+        BD.bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        BD.bd = os.path.join("resources", BD.bd )
+        conn = sqlite3.connect(BD.bd_name)
+        cursor = conn.cursor()
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            TITLE_OP TEXT,
+            LINK_OP TEXT
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ABOUT_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_OP INTEGER,
+            TITLE_OP TEXT,
+            LINK_OP TEXT,
+            ABOUT TEXT,
+            FOREIGN KEY (id_OP) REFERENCES OP(id)
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS FILES_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_ABOUT_OP INTEGER,
+            FILE_NAME TEXT,
+            FILE_LINK TEXT
+            FOREIGN KEY (id_ABOUT_OP) REFERENCES ABOUT_OP(id)
+        )""")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Создание новой директориии добавление в нее базу  данных\n")
+    
+    def filling_BD(text):
+        conn = sqlite3.connect(BD.bd_name)
+if __name__ == "__main__":
+    PARSING().fSTAGE()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+import sys
+
+import sqlite3
+
+import requests
+from bs4 import BeautifulSoup
+
+
+class outLOGs:
+    a = True
+    file_name = ''
+    file_path = ''
+    def __init__(self):
+        return
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        if(outLOGs.a == True): 
+            outLOGs.file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+            outLOGs.file_path = os.path.join("guts",  outLOGs.file_name)
+        outLOGs.a = False
+        if not  os.path.exists( outLOGs.file_path):
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        PARSING.sSTAGE(address)
+
+        name_OP.clear()
+        address.clear()
+
+    def sSTAGE(address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information = []
+
+        for i in range(1):
+            information = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\xa0', ' ').replace('\r ', '') )
+                else: continue
+                information.append(predl)
+            time.sleep(10)
+            s_information.append(information)
+        
+        # print(s_title)
+        # print(s_address)
+        # print(s_information)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        PARSING.thSTAGE(s_address)
+        s_address.clear()
+        s_title.clear()
+        s_information.clear()
+    
+    def thSTAGE(address):
+        url = address
+        data = [ ]
+ 
+        for i in range(len(url)):
+            result = []
+            th_title = []
+            th_name = []
+            th_address = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            file = soup.find(class_ = 'program-detail')
+            title = file.find_all('h5')
+            for j in title:
+                th_title.append(j.text) 
+            adres = soup.find_all(class_ = 'wb-ba')
+            for i in adres:
+                th_name.append(i.text)
+            for i in adres:
+                th_address.append("https://cchgeu.ru" +i['href'])
+
+            for j in range(3): 
+                result.append(th_title)
+                result.append(th_name)
+                result.append(th_address)
+        data.append(result)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Раздел файлов, название каждого опубликованного файла и его ссылка для скачивания получены.\n")
+
+
+class BD(outLOGs):
+    bd_name = "OTHENASHKOTORYNANEBESAH.db"
+    bd = ''
+    def __init__(self):
+        return
+
+    def create_BD(self):
+        if not os.path.exists('resources'):
+            print('создание папки с ресурсами')
+            os.makedirs('resources')
+        BD.bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        BD.bd = os.path.join("resources", BD.bd_name )
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            TITLE_OP TEXT,
+            LINK_OP TEXT
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ABOUT_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_OP INTEGER,
+            TITLE_OP TEXT,
+            LINK_OP TEXT,
+            INFORMATION[] TEXT,
+            FOREIGN KEY (id_OP) REFERENCES OP(id)
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS FILES_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_ABOUT_OP INTEGER,
+            FILE_NAME TEXT,
+            FILE_LINK TEXT
+            FOREIGN KEY (id_ABOUT_OP) REFERENCES ABOUT_OP(id)
+        )""")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Создание новой директориии добавление в нее базу данных({BD.bd})\n")
+        conn.commit()
+        conn.close()
+
+    def filling_BD(address, name):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn,cursor()
+        for i in range(len(address)):
+                cursor.execute('''
+                    INSERT INTO OP(TITLE_OP,LINK_OP)
+                    VALUES (?, ?)
+                ''', (address[i], name[i]))
+                conn.commit()
+        conn.close()
+    
+    def filling_BD(s_name, s_address,  s_information):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn,cursor()
+        for i in range(len(address)):
+                cursor.execute('''
+                    INSERT INTO OP(TITLE_OP,LINK_OP)
+                    VALUES (?, ?)
+                ''', (address[i], name[i]))
+                conn.commit()
+        conn.close()
+    
+        
+
+        
+
+
+    
+if __name__ == "__main__":
+    PARSING().fSTAGE()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+import sys
+
+import sqlite3
+
+import requests
+from bs4 import BeautifulSoup
+
+
+class outLOGs:
+    a = True
+    file_name = ''
+    file_path = ''
+    def __init__(self):
+        return
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        if(outLOGs.a == True): 
+            outLOGs.file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+            outLOGs.file_path = os.path.join("guts",  outLOGs.file_name)
+        outLOGs.a = False
+        if not  os.path.exists( outLOGs.file_path):
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(21,33+1):
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        BD.filling_BD_OP(name_OP,address)
+        PARSING.sSTAGE(address)
+
+        name_OP.clear()
+        address.clear()
+
+    def sSTAGE(address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information = []
+
+        for i in range(1):
+            information = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\xa0', ' ').replace('\r ', '') )
+                else: continue
+                information.append(predl)
+            time.sleep(7)
+            s_information.append(information)
+        BD.filling_BD_ABOUT_OP(s_title,s_address,s_information)
+
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        PARSING.thSTAGE(s_address)
+        s_address.clear()
+        s_title.clear()
+        s_information.clear()
+
+    def out(a,b,c):
+        print((a), "\n")
+        print((b), "\n")
+        print((c), "\n")
+    
+    def thSTAGE(address):
+        url = address
+        data = [ ]
+ 
+        for i in range(len(url)):
+            result = []
+            th_title = []
+            th_name = []
+            th_address = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            file = soup.find(class_ = 'program-detail')
+            title = file.find_all('h5')
+            for j in title:
+                th_title.append(j.text) 
+            adres = soup.find_all(class_ = 'wb-ba')
+            for i in adres:
+                th_name.append(i.text)
+            for i in adres:
+                th_address.append("https://cchgeu.ru" +i['href'])
+            
+            PARSING.out(th_title, th_name, th_address) 
+
+            for j in range(3):
+                result.append(th_title)
+                result.append(th_name)
+                result.append(th_address)
+        data.append(result)
+        BD.filling_BD_FILES_OP(i,th_title,th_name,th_address)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Раздел файлов, название каждого опубликованного файла и его ссылка для скачивания получены.\n")
+
+
+class BD(outLOGs):
+    bd_name = "OTHENASHKOTORYNANEBESAH.db"
+    bd = ''
+    def __init__(self):
+        return
+
+    def create_BD(self):
+        if not os.path.exists('resources'):
+            print('создание папки с ресурсами')
+            os.makedirs('resources')
+        BD.bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        BD.bd = os.path.join("resources", BD.bd_name )
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            TITLE_OP TEXT,
+            LINK_OP TEXT
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ABOUT_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_OP INTEGER,
+            TITLE_OP TEXT,
+            LINK_OP TEXT,
+            INFORMATION BLOB,
+            FOREIGN KEY (id_OP) REFERENCES OP(id)
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS FILES_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_ABOUT_OP INTEGER,
+            FILE_NAME BLOB,
+            FILE_LINK BLOB,
+            FOREIGN KEY (id_ABOUT_OP) REFERENCES ABOUT_OP(id)
+        )""")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Создание новой директориии добавление в нее базу данных({BD.bd})\n")
+        conn.commit()
+        conn.close()
+
+    def filling_BD_OP(address, name):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        for i in range(len(address)):
+                cursor.execute('''
+                    INSERT INTO OP(TITLE_OP,LINK_OP)
+                    VALUES (?, ?)
+                ''', (address[i], name[i]))
+                conn.commit()
+        conn.close()
+    
+    def filling_BD_FILES_OP(s_name, s_address,  s_information):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        for i in range(1,len(s_name)):
+            cursor.execute('''
+                INSERT INTO ABOUT_OP(id_OP,TITLE_OP,LINK_OP, INFORMATION)
+                VALUES (?, ?, ?, ?)
+                ''', (i, s_name[i], s_address[i], sqlite3.Binary(s_information[i].tobytes()) ))
+            conn.commit()
+        conn.close()
+    
+    def filling_BD_ABOUT_OP(i,th_title, th_name,  th_address):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        for j in range (1, len(th_name)):
+            cursor.execute('''
+                INSERT INTO ABOUT_OP(id_ABOUT_OP,TITLE_OP,LINK_OP, INFORMATION)
+                VALUES (?, ?, ?, ?)
+                ''', (i, th_title[i], th_name[j], th_address[j]))
+            conn.commit()
+        conn.close()
+      
+   
+if __name__ == "__main__":
+    if not os.path.exists('resources'):
+        BD.create_BD()
+    PARSING().fSTAGE()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+import sys
+
+import numpy as np
+import sqlite3
+
+import requests
+from bs4 import BeautifulSoup
+
+
+class outLOGs:
+    a = True
+    file_name = ''
+    file_path = ''
+    def __init__(self):
+        return
+    def creating_file(text):
+        if not os.path.exists('guts'):
+            print('создание папки с логами')
+            os.makedirs('guts')
+        if(outLOGs.a == True): 
+            outLOGs.file_name = "LOG_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
+            outLOGs.file_path = os.path.join("guts",  outLOGs.file_name)
+        outLOGs.a = False
+        if not  os.path.exists( outLOGs.file_path):
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, ("НАЧАЛО РАБОТЫ ПРИЛОЖЕНИЯ FITCBuddy(Faculty of Information Technology and Cybersecurity helper): " + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + "\n") )
+            outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, "_поставте пять пж\n\n")
+        outLOGs.write_text_to_file( outLOGs.file_name,  outLOGs.file_path, text)
+
+    def write_text_to_file(file_name, file_path, rec_text):
+        try:
+            with open(file_path, 'a', encoding='utf-8') as file:
+                file.write(rec_text)
+            print(f"запись успешно добавлена в файл {file_name}")
+        except IOError as e:
+            print(f"Ошибка при записи в файл: {e}")
+    
+
+class PARSING(outLOGs):
+    def __init__(self):
+        return
+    
+    def fSTAGE(self):
+        url = "https://cchgeu.ru/education/programms/index.php"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"} 
+        resp = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(resp, "lxml")
+        tabl_class = soup.find(class_="table")
+        line = tabl_class.find_all("tr")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] СПИСОК специальностей факультета ФИТКБ получен.\n")
+        name_OP = []
+        address = []
+        for i in range(20,32+1): ##ФИТКБ
+            name_OP.append(line[i].find('a').text)
+            address.append("https://cchgeu.ru" +line[i].find('a')["href"])
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Названия и ссылки на специальности факультета ФИТКБ получены.\n")
+
+        BD.filling_BD_OP(name_OP,address)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Сохранение в базу данных.\n")
+
+        PARSING.sSTAGE(address)
+
+        name_OP.clear()
+        address.clear()
+
+    def sSTAGE(address):
+        url = address
+
+        s_address = []
+        s_title = []
+        s_information = []
+
+        for i in range(len(url)):
+            information = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[i], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            about_us = soup.find(class_ = 'bring-left')
+            line = about_us.find_all('a')[-1]
+
+            s_address.append("https://cchgeu.ru" + line['href'])
+            s_title.append(line.text)
+
+
+            about_us = soup.find(class_ = 'program-detail')
+            inf = about_us.find_all('p')
+            for j in inf:
+                predl = []
+                if(len(j.text) > 100): predl.append(j.text.replace('\n', '').replace('\t', '').replace('\xa0', ' ').replace('\r ', '') )
+                else: continue
+                information.append(predl)
+                
+            time.sleep(7)
+            s_information.append(information)
+
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Название, ссылка на сайт с файлами и информация об специальности получены.\n")
+        BD.filling_BD_ABOUT_OP(s_title, s_address, s_information)
+        PARSING.thSTAGE(s_address)
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Сохранение в базу данных.\n")
+        s_address.clear()
+        s_title.clear()
+        s_information.clear()
+
+
+    
+    def thSTAGE(address):
+        url = address
+        data = [ ]
+ 
+        for ii in range(len(url)):
+            result = []
+            th_title = []
+            th_name = []
+            th_address = []
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"}
+            resp = requests.get(url[ii], headers=headers).text
+            soup = BeautifulSoup(resp, "lxml")
+            file = soup.find(class_ = 'program-detail')
+            title = file.find_all('h5')
+            for j in title:
+                th_title.append(j.text) 
+            adres = soup.find_all(class_ = 'wb-ba')
+            for i in adres:
+                th_name.append(i.text)
+            for i in adres:
+                th_address.append("https://cchgeu.ru" +i['href'])
+    
+            for j in range(3):
+                result.append(th_title)
+                result.append(th_name)
+                result.append(th_address)
+            BD.filling_BD_FILES_OP(ii,th_title,th_name,th_address)
+        data.append(result)
+        
+    outLOGs.creating_file( f"[{datetime.datetime.now()}] Раздел файлов, название каждого опубликованного файла и его ссылка для скачивания получены.\n")
+    outLOGs.creating_file( f"[{datetime.datetime.now()}] Сохранение в базу данных.\n")
+
+class BD(outLOGs):
+    bd_name = "OTHENASHKOTORYNANEBESAH.db"
+    bd = os.path.join("resources", bd_name )
+    def __init__(self):
+        return
+
+    def create_BD(self):
+        if  os.path.exists('resources'):
+            BD.bd = ''
+        if not os.path.exists('resources'):
+            print('создание папки с ресурсами')
+            os.makedirs('resources')
+        BD.bd_name = "OTHENASHKOTORYNANEBESAH.db"
+
+
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            TITLE_OP TEXT,
+            LINK_OP TEXT
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ABOUT_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_OP INTEGER,
+            TITLE_OP TEXT,
+            LINK_OP TEXT,
+            INFORMATION BLOB,
+            FOREIGN KEY (id_OP) REFERENCES OP(id)
+        )""")
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS FILES_OP (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_ABOUT_OP INTEGER,                       
+            TITLE_OP TEXT NULL,
+            FILE_NAME TEXT,
+            FILE_LINK TEXT,
+            FOREIGN KEY (id_ABOUT_OP) REFERENCES ABOUT_OP(id)
+        )""")
+        outLOGs.creating_file( f"[{datetime.datetime.now()}] Создание новой директориии добавление в нее базу данных({BD.bd})\n")
+        conn.commit()
+        conn.close()
+        return
+
+
+    def filling_BD_OP(address, name):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        for i in range(len(address)):
+                cursor.execute('''
+                    INSERT OR REPLACE INTO OP(TITLE_OP,LINK_OP)
+                    VALUES (?, ?)
+                ''', (address[i], name[i]))
+                conn.commit()
+        conn.close()
+        return
+    
+    def filling_BD_ABOUT_OP(s_name, s_address,  s_information):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        for i in range(len(s_name)):
+            cursor.execute('''
+                INSERT OR REPLACE INTO ABOUT_OP(id_OP,TITLE_OP,LINK_OP, INFORMATION)
+                VALUES (?, ?, ?, ?)
+                ''', (i, s_name[i], s_address[i], sqlite3.Binary(np.array(s_information[i])).tobytes() ))
+            conn.commit()
+        conn.close()
+        return
+    
+    def filling_BD_FILES_OP(i, th_title, th_name,  th_address):
+        conn = sqlite3.connect(BD.bd)
+        cursor = conn.cursor()
+        for j in range (1, len(th_name)):
+            cursor.execute('''
+                 INSERT OR REPLACE INTO FILES_OP(id_ABOUT_OP, TITLE_OP, FILE_NAME, FILE_LINK)
+                VALUES (?, ?, ?, ?)
+                ''', (i ,'', th_name[j], th_address[j]))
+            conn.commit()
+        conn.close()
+        return
+      
+   
+if __name__ == "__main__":
+    if not os.path.exists('resources'):
+        BD().create_BD()
+    PARSING().fSTAGE()
+
+
+
+
+
+
+
+
+
+
+
+
+from parsing import *
+
+    def dobavlenieSpecial(self):
+                bd_name = "OTHENASHKOTORYNANEBESAH.db"
+                bd = os.path.join("resources", bd_name )
+                conn = sqlite3.connect(bd)
+                cursor = conn.cursor() 
+                cursor.execute(f'SELECT TITLE_OP FROM OP')
+                results = cursor.fetchall()
+                conn.close()
+                arrr = [row[0] for row in results]
+                print(arrr)
+                conn.close()
+                dataBTN = [self.SP_1, self.SP_2, self.SP_3, self.SP_4, self.SP_5, self.SP_6, self.SP_7, self.SP_8, self.SP_9, self.SP_10, self.SP_11, self.SP_12, self.SP_13]
+                for i in range(len(arrr)):
+                      dataBTN[i].setText(arrr[i])
+                arrr.clear()
+
+
+
+
+import time
+import os
+import datetime
+import sys
+
+import numpy as np
+
+import pytesseract
+from PIL import Image
+from pdf2image import convert_from_path
+import pandas as pd
+
+import sqlite3
+import requests
+
+
+
+    ch_fac = 0
+    ch = 0
+
+    UP = []
+    KPVR = []
+    OP = []
+    AnnRPOP = []
+    RPD = []
+    RPV = []
+    PP = []
+    MiD = []
+
+    UPn = []
+    KPVRn = []
+    OPn = []
+    AnnRPOPn = []
+    RPDn = []
+    RPVn = []
+    PPn = []
+    MiDn = []
+
+
+    title = []
+
+
+    
+
+    def addTitle(self):
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor() 
+        cursor.execute(f'SELECT TITLE_OP FROM OP')
+        results = cursor.fetchall()
+        conn.close()
+        self.title = [row[0].replace('"',"'") for row in results]
+        conn.close()
+        dataBTN = [self.SP_1, self.SP_2, self.SP_3, self.SP_4, self.SP_5, self.SP_6, self.SP_7, self.SP_8, self.SP_9, self.SP_10, self.SP_11, self.SP_12, self.SP_13]
+        for i in range(len(self.title)):
+                dataBTN[i].setText(self.title[i])
+
+    def setaboutOP(self, i):
+        self.ch = i
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT INFORMATION FROM ABOUT_OP WHERE id_OP = {i} ')
+        results = cursor.fetchall()
+        text = '\n'.join([result[0] for result in results])
+        self.textEdit_3.setPlainText(text)
+        conn.close()
+        self.insertFILES(i)
+
+
+    def insertFILES(self, i):
+        self.spiskiclear()
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT FILE_NAME FROM FILES_OP WHERE id_ABOUT_OP = {i} ')
+        f_name = [row[0] for row in cursor.fetchall()] 
+        cursor.execute(f'SELECT FILE_LINK FROM FILES_OP WHERE id_ABOUT_OP = {i} ')
+        f_links = [row[0] for row in cursor.fetchall()]
+        conn.close()
+
+        for j in range(0, len(f_name)):
+            if '09.03.0' in f_name[j] and '20' in f_name[j] and len(f_name[j])  < 27:
+                self.UP.append(f_links[j])
+                self.UPn.append(f_name[j])
+
+            if ('АННОТ' in f_name[j] or 'Аннот' in f_name[j]) and ('практ' not in f_name[j] or 'Практ' not in f_name[j]) and '20' in f_name[j]:
+                self.AnnRPOP.append(f_links[j])
+                self.AnnRPOPn.append(f_name[j])
+
+            if ('План' in f_name[j] or 'план' in f_name[j])  and ('Восп' in f_name[j] or 'восп' in f_name[j]) and ('Раб' in f_name[j] or 'раб' in f_name[j]):
+                self.KPVR.append(f_links[j])
+                self.KPVRn.append(f_name[j])
+
+            if ( ((('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j])) or 'РП' in f_name[j] )  and ('Восп' in f_name[j] or 'восп' in f_name[j])):
+                self.RPV.append(f_links[j])
+                self.RPVn.append(f_name[j])
+
+            if (('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j]))  and ('практ' not in f_name[j] or 'Практ' not in f_name[j] or 'П_' not in f_name[j] ) and ('Восп' not in f_name[j] or 'восп' not in f_name[j]):
+                self.RPD.append(f_links[j])
+                self.RPDn.append(f_name[j])
+
+            if (('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j])) and ('практ'  in f_name[j] or 'Практ'  in f_name[j] or 'П_'  in f_name[j]  or 'П__'  in f_name[j])   and '20' in f_name[j]:
+                self.PP.append(f_links[j])
+                self.PPn.append(f_name[j])
+
+            if 'ОПОП' in f_name[j] and 'план' not in f_name[j] and 'Раб' not in f_name[j] and 'РП' not in f_name[j] :
+                self.OP.append(f_links[j])
+                self.OPn.append(f_name[j])
+
+            if ('MP' in f_name[j] or 'МУ' in f_name[j] or 'пос' in f_name[j] or 'УП' in f_name[j] or 'metodic' in f_name[j] or 'УМП' in f_name[j] or ('Практикум' in f_name[j] or 'практикум' in f_name[j]) or 'Сборник' in f_name[j] or 'методич' in f_name[j]  or 'Руков' in f_name[j]):
+                self.MiD.append(f_links[j])
+                self.MiDn.append(f_name[j])
+
+    def downloadFiles(self,i):
+        path =[]
+        parent = self.title[self.ch - 1]
+        file_op_path = os.path.join("resources",parent)
+        # outLOGs.file_path = os.path.join("logs",  outLOGs.file_name)
+        url = [self.UP, self.AnnRPOP,self.KPVR,self.RPD,self.RPV,self.PP,self.OP,self.MiD ]
+        nam = [self.UPn, self.AnnRPOPn,self.KPVRn,self.RPDn,self.RPVn,self.PPn,self.OPn,self.MiDn ]
+        name_papkf = ['УЧЕБНЫЙ ПЛАН',
+                      'АННОТАЦИИ К РАБОЧИМ ПРОГРАММАМ ДИСЦИПЛИН И ПРАКТИКИ',
+                      'КАЛЕНДАРНЫЙ ПЛАН ВОСПИТАТЕЛЬНОЙ РАБОТЫ',
+                      'РАБОЧАЯ ПРОГРАММА ДИСЦИПЛИН',
+                      'РАБОЧАЯ ПРОГРАММА ВОСПИТАНИЯ',
+                      'ПРОГРАММЫ ПРАКТИК',
+                      'ОБРАЗОВАТЕЛЬНАЯ ПРОГРАММА',
+                      'МЕТОДИЧЕСКИЕ И ИНЫЕ ДОКУМЕНТЫ']
+
+        if os.path.exists("resources"):
+            if not os.path.exists(file_op_path):
+                os.makedirs(file_op_path)
+                file_op_path = os.path.join(file_op_path,name_papkf[i-1])
+                if not os.path.exists(file_op_path):
+                        os.makedirs(file_op_path)
+                        for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print("ЗАГРУЗКА ЗАВЕРШЕНА!")                                       
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      self.convert(i, os.path.join(file_op_path, nam[i-1][ii]))
+                                      return
+                else: 
+                      for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print("ЗАГРУЗКА ЗАВЕРШЕНА!")
+                                else:
+                                        print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                        self.convert(i, os.path.join(file_op_path, nam[i-1][ii]))
+                                        return 
+            else: 
+                file_op_path = os.path.join(file_op_path,name_papkf[i-1])
+                if not os.path.exists(file_op_path):
+                        os.makedirs(file_op_path)
+                        for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print("ЗАГРУЗКА ЗАВЕРШЕНА!")
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      self.convert(i, os.path.join(file_op_path, nam[i-1][ii]))
+                                      return
+                else: 
+                      for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                else:
+                                      print("ФАЙЛЫ УЖЕ ИМЕЮТСЯ!")
+                                      self.convert(i - 1, os.path.join(file_op_path, nam[i-1][ii]))
+                                      return
+                                      
+        file_op_path = ''
+        parent = ''
+
+    def convert(self,i, file_op_path):
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_op_path)
+        print(file_path)
+        if(i == 0):
+                img = convert_from_path(file_path)
+                text = []
+                for i, image in enumerate(img):
+                        # Сохраняем каждую страницу как изображение
+                        image_path = f"page_{i}.jpg"
+                        image.save(image_path, 'JPEG')
+                        # # Применяем OCR для извлечения текста
+                        lines = pytesseract.image_to_string(Image.open(image_path), lang='rus')
+                        for lines in pytesseract.image_to_string(Image.open(image_path), lang='rus').splitlines():
+                                if lines.strip():  # Удаляем пустые строки
+                                        text.append(lines.splitlines())
+                        # if lines.strip():  # Удаляем пустые строки
+                                
+                        # text.append(lines.splitlines() )
+                        # Удаляем временные изображения
+                        os.remove(image_path)
+                        break
+        print(text)
+        file_path = ''
+
+
+
+    def convert(self,i, file_op_path):
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_op_path)
+        print(file_path)
+        information = []
+        if(i == 0):
+                img = convert_from_path(file_path)
+                text = []
+                for ii, image in enumerate(img):
+                        # Сохраняем каждую страницу как изображение
+                        print(ii)
+                        image_path = f"page_{ii}.jpg"
+                        cropped_image = image.crop((1060,1040,2015,1500))
+                        cropped_image.save(image_path, 'JPEG')
+                        lines = pytesseract.image_to_string(Image.open(image_path), lang='rus')
+
+                        for lines in pytesseract.image_to_string(Image.open(image_path), lang='rus').splitlines():
+                                if lines.strip():  # Удаляем пустые строки
+                                        text.append(lines.splitlines())
+
+                        os.remove(image_path)
+                        break
+        print(text)
+        file_path = ''
+
+
+
+
+
+
+        # self.fitkbBTN.clicked.connect(lambda: self.ch_fac = 1)
+        # self.faigBTN.clicked.connect(lambda: self.ch_fac = 2)
+        # self.fmatBTN.clicked.connect(lambda: self.ch_fac = 3)
+        # self.fissBTN.clicked.connect(lambda: self.ch_fac = 4)
+        # self.rteBTN.clicked.connect(lambda:self.ch_fac = 5)
+
+
+        self.SP_1.clicked.connect(lambda: self.setaboutOP(1))
+        self.SP_2.clicked.connect(lambda: self.setaboutOP(2))
+        self.SP_3.clicked.connect(lambda: self.setaboutOP(3))
+        self.SP_4.clicked.connect(lambda: self.setaboutOP(4))
+        self.SP_5.clicked.connect(lambda: self.setaboutOP(5))
+        self.SP_6.clicked.connect(lambda: self.setaboutOP(6))
+        self.SP_7.clicked.connect(lambda: self.setaboutOP(7))
+        self.SP_8.clicked.connect(lambda: self.setaboutOP(8))
+        self.SP_9.clicked.connect(lambda: self.setaboutOP(9))
+        self.SP_10.clicked.connect(lambda: self.setaboutOP(10))
+        self.SP_11.clicked.connect(lambda: self.setaboutOP(11))
+        self.SP_12.clicked.connect(lambda: self.setaboutOP(12))
+        self.SP_13.clicked.connect(lambda: self.setaboutOP(13))
+
+
+        self.uchplansBTN.clicked.connect(lambda: self.downloadFiles(1))
+        self.annotrabprogrdiscpraBTN.clicked.connect(lambda: self.downloadFiles(2))
+        self.kalendplanvrBTN.clicked.connect(lambda: self.downloadFiles(3))
+        self.rabochprogrdicsmodulBTN.clicked.connect(lambda: self.downloadFiles(4))
+        self.rabprogrvospBTN.clicked.connect(lambda: self.downloadFiles(5))
+        self.progrpraktBTN.clicked.connect(lambda: self.downloadFiles(6))
+        self.obrprogrBTN.clicked.connect(lambda: self.downloadFiles(7))
+        self.metodichdocumBTN.clicked.connect(lambda: self.downloadFiles(8))
+
+
+
+
+import time
+import os
+import datetime
+import sys
+import pytesseract
+from PIL import Image
+import cv2
+import numpy as np
+from pdf2image import convert_from_path
+
+
+
+
+   ch_fac = 0
+    ch = 0
+    ch_title = 0
+
+    UP = []
+    KPVR = []
+    OP = []
+    AnnRPOP = []
+    RPD = []
+    RPV = []
+    PP = []
+    MiD = []
+
+    UPn = []
+    KPVRn = []
+    OPn = []
+    AnnRPOPn = []
+    RPDn = []
+    RPVn = []
+    PPn = []
+    MiDn = []
+
+
+    title = []
+
+
+
+       def addTitle(self):
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor() 
+        cursor.execute(f'SELECT TITLE_OP FROM OP')
+        results = cursor.fetchall()
+        conn.close()
+        self.title = [row[0].replace('"',"'") for row in results]
+        conn.close()
+        dataBTN = [self.SP_1, self.SP_2, self.SP_3, self.SP_4, self.SP_5, self.SP_6, self.SP_7, self.SP_8, self.SP_9, self.SP_10, self.SP_11, self.SP_12, self.SP_13]
+        for i in range(len(self.title)):
+                dataBTN[i].setText(self.title[i])
+
+    def setaboutOP(self, i):
+        self.ch = i
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT INFORMATION FROM ABOUT_OP WHERE id_OP = {i} ')
+        results = cursor.fetchall()
+        text = '\n'.join([result[0] for result in results])
+        self.textEdit_3.setPlainText(text)
+        conn.close()
+        self.insertFILES(i)
+
+
+    def insertFILES(self, i):
+        self.spiskiclear()
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT FILE_NAME FROM FILES_OP WHERE id_ABOUT_OP = {i} ')
+        f_name = [row[0] for row in cursor.fetchall()] 
+        cursor.execute(f'SELECT FILE_LINK FROM FILES_OP WHERE id_ABOUT_OP = {i} ')
+        f_links = [row[0] for row in cursor.fetchall()]
+        conn.close()
+
+        for j in range(0, len(f_name)):
+            if '09.03.0' in f_name[j] and '20' in f_name[j] and len(f_name[j])  < 27:
+                self.UP.append(f_links[j])
+                self.UPn.append(f_name[j])
+
+            if ('АННОТ' in f_name[j] or 'Аннот' in f_name[j]) and ('практ' not in f_name[j] or 'Практ' not in f_name[j]) and '20' in f_name[j]:
+                self.AnnRPOP.append(f_links[j])
+                self.AnnRPOPn.append(f_name[j])
+
+            if ('План' in f_name[j] or 'план' in f_name[j])  and ('Восп' in f_name[j] or 'восп' in f_name[j]) and ('Раб' in f_name[j] or 'раб' in f_name[j]):
+                self.KPVR.append(f_links[j])
+                self.KPVRn.append(f_name[j])
+
+            if ( ((('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j])) or 'РП' in f_name[j] )  and ('Восп' in f_name[j] or 'восп' in f_name[j])):
+                self.RPV.append(f_links[j])
+                self.RPVn.append(f_name[j])
+
+            if (('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j]))  and ('практ' not in f_name[j] or 'Практ' not in f_name[j] or 'П_' not in f_name[j] ) and ('Восп' not in f_name[j] or 'восп' not in f_name[j]):
+                self.RPD.append(f_links[j])
+                self.RPDn.append(f_name[j])
+
+            if (('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j])) and ('практ'  in f_name[j] or 'Практ'  in f_name[j] or 'П_'  in f_name[j]  or 'П__'  in f_name[j])   and '20' in f_name[j]:
+                self.PP.append(f_links[j])
+                self.PPn.append(f_name[j])
+
+            if 'ОПОП' in f_name[j] and 'план' not in f_name[j] and 'Раб' not in f_name[j] and 'РП' not in f_name[j] :
+                self.OP.append(f_links[j])
+                self.OPn.append(f_name[j])
+
+            if ('MP' in f_name[j] or 'МУ' in f_name[j] or 'пос' in f_name[j] or 'УП' in f_name[j] or 'metodic' in f_name[j] or 'УМП' in f_name[j] or ('Практикум' in f_name[j] or 'практикум' in f_name[j]) or 'Сборник' in f_name[j] or 'методич' in f_name[j]  or 'Руков' in f_name[j]):
+                self.MiD.append(f_links[j])
+                self.MiDn.append(f_name[j])
+
+    def spiskiclear(self):
+        self.UP.clear()
+        self.AnnRPOP.clear()
+        self.KPVR.clear()
+        self.RPD.clear()
+        self.RPV.clear()
+        self.PP.clear()
+        self.OP.clear()
+        self.MiD.clear()
+
+    def downloadFiles(self,i):
+        path =[]
+        parent = self.title[self.ch - 1]
+        file_op_path = os.path.join("resources",parent)
+        # outLOGs.file_path = os.path.join("logs",  outLOGs.file_name)
+        url = [self.UP, self.AnnRPOP,self.KPVR,self.RPD,self.RPV,self.PP,self.OP,self.MiD ]
+        nam = [self.UPn, self.AnnRPOPn,self.KPVRn,self.RPDn,self.RPVn,self.PPn,self.OPn,self.MiDn ]
+        name_papkf = ['УЧЕБНЫЙ ПЛАН',
+                      'АННОТАЦИИ К РАБОЧИМ ПРОГРАММАМ ДИСЦИПЛИН И ПРАКТИКИ',
+                      'КАЛЕНДАРНЫЙ ПЛАН ВОСПИТАТЕЛЬНОЙ РАБОТЫ',
+                      'РАБОЧАЯ ПРОГРАММА ДИСЦИПЛИН',
+                      'РАБОЧАЯ ПРОГРАММА ВОСПИТАНИЯ',
+                      'ПРОГРАММЫ ПРАКТИК',
+                      'ОБРАЗОВАТЕЛЬНАЯ ПРОГРАММА',
+                      'МЕТОДИЧЕСКИЕ И ИНЫЕ ДОКУМЕНТЫ']
+
+        if os.path.exists("resources"):
+            if not os.path.exists(file_op_path):
+                os.makedirs(file_op_path)
+                file_op_path = os.path.join(file_op_path,name_papkf[i-1])
+                if not os.path.exists(file_op_path):
+                        os.makedirs(file_op_path)
+                        for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})")                                      
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      self.convert(os.path.join(file_op_path, nam[i-1][ii]))
+                                      return
+                else: 
+                      for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})") 
+                                else:
+                                        print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                        self.convert(os.path.join(file_op_path, nam[i-1][ii]))
+                                        return 
+            else: 
+                file_op_path = os.path.join(file_op_path,name_papkf[i-1])
+                if not os.path.exists(file_op_path):
+                        os.makedirs(file_op_path)
+                        for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})") 
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      self.convert(os.path.join(file_op_path, nam[i-1][ii]))
+                                      return
+                else: 
+                      for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})") 
+                                else:
+                                      print("ФАЙЛЫ УЖЕ ИМЕЮТСЯ!")
+                                      self.convert( os.path.join(file_op_path, nam[i-1][ii]))
+                                      
+        file_op_path = ''
+        parent = ''
+
+    def convert(self, file_op_path):
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_op_path)
+        title = []
+         # нащвание раздела с документами(учеьный план)
+        img = convert_from_path(file_path)
+        text = []
+        for iI, image in enumerate(img):
+                image_path = f"page_{iI}.jpg"
+                image.save(image_path, 'JPEG')
+                lines = pytesseract.image_to_string(Image.open(image_path), lang='rus')
+                # for lines in pytesseract.image_to_string(Image.open(image_path), lang='rus').splitlines():
+                #         if lines.strip() and len(lines) > 10:  # Удаляем пустые строки
+                #                 text.append(lines.splitlines())
+                # combined_text = '\n'.join(' '.join(i) for i in text)
+                os.remove(image_path)
+                title.append(lines.replace('\n\n', ''))
+                break
+
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT FILE_NAME FROM FILES_OP WHERE id_ABOUT_OP = {self.ch} ')
+        f_name = [row[0] for row in cursor.fetchall()] 
+        conn.close()
+    
+        for i in f_name:
+              if i == os.path.basename(file_path):
+                        print(i == os.path.basename(file_path))
+                        conn = sqlite3.connect(bd)
+                        cursor = conn.cursor()
+                        cursor.execute('''
+                                UPDATE  FILES_OP
+                                SET TITLE_FILE = ? 
+                                WHERE FILE_NAME = ? ;
+                                ''', (  title[0]  , i ))
+                        conn.commit()
+                        conn.close()
+
+                        # cursor.execute('''
+                        #         INSERT OR REPLACE INTO FILES_OP(FILE_NAME, TITLE_FILE)
+                        #         VALUES (?, ?)
+                        #         ''', (i, title))
+                        # cursor.execute('''
+                        #         REPLACE INTO FILES_OP(FILE_NAME, TITLE_FILE)
+                        #         VALUES (?, ?)
+                        #         ''', (i, title))
+                        
+
+
+
+        # self.fitkbBTN.clicked.connect(lambda: self.ch_fac = 1)
+        # self.faigBTN.clicked.connect(lambda: self.ch_fac = 2)
+        # self.fmatBTN.clicked.connect(lambda: self.ch_fac = 3)
+        # self.fissBTN.clicked.connect(lambda: self.ch_fac = 4)
+        # self.rteBTN.clicked.connect(lambda:self.ch_fac = 5)
+
+
+        self.SP_1.clicked.connect(lambda: self.setaboutOP(1))
+        self.SP_2.clicked.connect(lambda: self.setaboutOP(2))
+        self.SP_3.clicked.connect(lambda: self.setaboutOP(3))
+        self.SP_4.clicked.connect(lambda: self.setaboutOP(4))
+        self.SP_5.clicked.connect(lambda: self.setaboutOP(5))
+        self.SP_6.clicked.connect(lambda: self.setaboutOP(6))
+        self.SP_7.clicked.connect(lambda: self.setaboutOP(7))
+        self.SP_8.clicked.connect(lambda: self.setaboutOP(8))
+        self.SP_9.clicked.connect(lambda: self.setaboutOP(9))
+        self.SP_10.clicked.connect(lambda: self.setaboutOP(10))
+        self.SP_11.clicked.connect(lambda: self.setaboutOP(11))
+        self.SP_12.clicked.connect(lambda: self.setaboutOP(12))
+        self.SP_13.clicked.connect(lambda: self.setaboutOP(13))
+
+
+        self.uchplansBTN.clicked.connect(lambda: self.downloadFiles(1))
+        self.annotrabprogrdiscpraBTN.clicked.connect(lambda: self.downloadFiles(2))
+        self.kalendplanvrBTN.clicked.connect(lambda: self.downloadFiles(3))
+        self.rabochprogrdicsmodulBTN.clicked.connect(lambda: self.downloadFiles(4))
+        self.rabprogrvospBTN.clicked.connect(lambda: self.downloadFiles(5))
+        self.progrpraktBTN.clicked.connect(lambda: self.downloadFiles(6))
+        self.obrprogrBTN.clicked.connect(lambda: self.downloadFiles(7))
+        self.metodichdocumBTN.clicked.connect(lambda: self.downloadFiles(8))
+
+
+
+
+
+
+
+
+
+
+import time
+import os
+import datetime
+import sys
+import pytesseract
+from PIL import Image
+import cv2
+import numpy as np
+from pdf2image import convert_from_path
+import tabula
+
+import pandas as pd
+
+import sqlite3
+import requests
+
+
+
+
+    ch_fac = 0
+    ch = 0
+    ch_title = 0
+
+    UP = []
+    KPVR = []
+    OP = []
+    AnnRPOP = []
+    RPD = []
+    RPV = []
+    PP = []
+    MiD = []
+
+    UPn = []
+    KPVRn = []
+    OPn = []
+    AnnRPOPn = []
+    RPDn = []
+    RPVn = []
+    PPn = []
+    MiDn = []
+
+
+    title = []
+
+
+    def addTitle(self):
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor() 
+        cursor.execute(f'SELECT TITLE_OP FROM OP')
+        results = cursor.fetchall()
+        conn.close()
+        self.title = [row[0].replace('"',"'") for row in results]
+        conn.close()
+        dataBTN = [self.SP_1, self.SP_2, self.SP_3, self.SP_4, self.SP_5, self.SP_6, self.SP_7, self.SP_8, self.SP_9, self.SP_10, self.SP_11, self.SP_12, self.SP_13]
+        for i in range(len(self.title)):
+                dataBTN[i].setText(self.title[i])
+
+    def setaboutOP(self, i):
+        self.ch = i
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT INFORMATION FROM ABOUT_OP WHERE id_OP = {i} ')
+        results = cursor.fetchall()
+        text = '\n'.join([result[0] for result in results])
+        self.textEdit_3.setPlainText(text)
+        conn.close()
+        self.insertFILES(i)
+
+
+    def insertFILES(self, i):
+        self.spiskiclear()
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT FILE_NAME FROM FILES_OP WHERE id_ABOUT_OP = {i} ')
+        f_name = [row[0] for row in cursor.fetchall()] 
+        cursor.execute(f'SELECT FILE_LINK FROM FILES_OP WHERE id_ABOUT_OP = {i} ')
+        f_links = [row[0] for row in cursor.fetchall()]
+        conn.close()
+
+        for j in range(0, len(f_name)):
+            if '09.03.0' in f_name[j] and '20' in f_name[j] and len(f_name[j])  < 27:
+                self.UP.append(f_links[j])
+                self.UPn.append(f_name[j])
+
+            if ('АННОТ' in f_name[j] or 'Аннот' in f_name[j]) and ('практ' not in f_name[j] or 'Практ' not in f_name[j]) and '20' in f_name[j]:
+                self.AnnRPOP.append(f_links[j])
+                self.AnnRPOPn.append(f_name[j])
+
+            if ('План' in f_name[j] or 'план' in f_name[j])  and ('Восп' in f_name[j] or 'восп' in f_name[j]) and ('Раб' in f_name[j] or 'раб' in f_name[j]):
+                self.KPVR.append(f_links[j])
+                self.KPVRn.append(f_name[j])
+
+            if ( ((('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j])) or 'РП' in f_name[j] )  and ('Восп' in f_name[j] or 'восп' in f_name[j])):
+                self.RPV.append(f_links[j])
+                self.RPVn.append(f_name[j])
+
+            if (('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j]))  and ('практ' not in f_name[j] or 'Практ' not in f_name[j] or 'П_' not in f_name[j] ) and ('Восп' not in f_name[j] or 'восп' not in f_name[j]):
+                self.RPD.append(f_links[j])
+                self.RPDn.append(f_name[j])
+
+            if (('Раб' in f_name[j] or 'раб' in f_name[j]) and ('Прогр' in f_name[j] or 'прогр' in f_name[j])) and ('практ'  in f_name[j] or 'Практ'  in f_name[j] or 'П_'  in f_name[j]  or 'П__'  in f_name[j])   and '20' in f_name[j]:
+                self.PP.append(f_links[j])
+                self.PPn.append(f_name[j])
+
+            if 'ОПОП' in f_name[j] and 'план' not in f_name[j] and 'Раб' not in f_name[j] and 'РП' not in f_name[j] :
+                self.OP.append(f_links[j])
+                self.OPn.append(f_name[j])
+
+            if ('MP' in f_name[j] or 'МУ' in f_name[j] or 'пос' in f_name[j] or 'УП' in f_name[j] or 'metodic' in f_name[j] or 'УМП' in f_name[j] or ('Практикум' in f_name[j] or 'практикум' in f_name[j]) or 'Сборник' in f_name[j] or 'методич' in f_name[j]  or 'Руков' in f_name[j]):
+                self.MiD.append(f_links[j])
+                self.MiDn.append(f_name[j])
+
+    def spiskiclear(self):
+        self.UP.clear()
+        self.AnnRPOP.clear()
+        self.KPVR.clear()
+        self.RPD.clear()
+        self.RPV.clear()
+        self.PP.clear()
+        self.OP.clear()
+        self.MiD.clear()
+
+    def downloadFiles(self,i):
+        path =[]
+        parent = self.title[self.ch - 1]
+        file_op_path = os.path.join("resources",parent)
+        # outLOGs.file_path = os.path.join("logs",  outLOGs.file_name)
+        url = [self.UP, self.AnnRPOP,self.KPVR,self.RPD,self.RPV,self.PP,self.OP,self.MiD ]
+        nam = [self.UPn, self.AnnRPOPn,self.KPVRn,self.RPDn,self.RPVn,self.PPn,self.OPn,self.MiDn ]
+        name_papkf = ['УЧЕБНЫЙ ПЛАН',
+                      'АННОТАЦИИ К РАБОЧИМ ПРОГРАММАМ ДИСЦИПЛИН И ПРАКТИКИ',
+                      'КАЛЕНДАРНЫЙ ПЛАН ВОСПИТАТЕЛЬНОЙ РАБОТЫ',
+                      'РАБОЧАЯ ПРОГРАММА ДИСЦИПЛИН',
+                      'РАБОЧАЯ ПРОГРАММА ВОСПИТАНИЯ',
+                      'ПРОГРАММЫ ПРАКТИК',
+                      'ОБРАЗОВАТЕЛЬНАЯ ПРОГРАММА',
+                      'МЕТОДИЧЕСКИЕ И ИНЫЕ ДОКУМЕНТЫ']
+
+        if os.path.exists("resources"):
+            if not os.path.exists(file_op_path):
+                os.makedirs(file_op_path)
+                file_op_path = os.path.join(file_op_path,name_papkf[i-1])
+                if not os.path.exists(file_op_path):
+                        os.makedirs(file_op_path)
+                        for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})")                                      
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      print(F"АНАЛИЗ ({ii+1} / {len(url[i-1])}) ")
+                                      self.convert(os.path.join(file_op_path, nam[i-1][ii]))
+                                      return
+                else: 
+                      for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})") 
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      print(F"АНАЛИЗ ({ii+1} / {len(url[i-1])}) ")
+                                      self.convert(os.path.join(file_op_path, nam[i-1][ii]))
+                                      return 
+            else: 
+                file_op_path = os.path.join(file_op_path,name_papkf[i-1])
+                if not os.path.exists(file_op_path):
+                        os.makedirs(file_op_path)
+                        for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})") 
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      print(F"АНАЛИЗ ({ii+1} / {len(url[i-1])}) ")
+                                      self.convert(os.path.join(file_op_path, nam[i-1][ii]))
+                                      return
+                else: 
+                      for ii in range(0, len(url[i-1])):
+                                t = os.path.join(file_op_path, nam[i-1][ii] )
+                                response = requests.get(url[i-1][ii])
+                                if response.status_code == 200 and not os.path.exists(t):
+                                        with open(os.path.join(file_op_path, nam[i-1][ii] ), 'wb') as file:
+                                                for chunk in response.iter_content(chunk_size=1024):
+                                                        file.write(chunk)
+                                                time.sleep(1)
+                                                print(f" { name_papkf[i-1]} ЗАГРУЗКА ({ii+1} / {len(url[i-1])})") 
+                                else:
+                                      print("ФАЙЛ УЖЕ ЗАГРУЖЕН!")
+                                      print(F"АНАЛИЗ ({ii+1} / {len(url[i-1])}) ")
+                                      self.convert( os.path.join(file_op_path, nam[i-1][ii]))
+                                      
+        file_op_path = ''
+        parent = ''
+
+    def convert(self, file_op_path):
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_op_path)
+        title = []
+         # нащвание раздела с документами(учеьный план)
+        img = convert_from_path(file_path)
+        text = []
+        for iI, image in enumerate(img):
+                image_path = f"page_{iI}.jpg"
+                image.save(image_path, 'JPEG')
+                lines = pytesseract.image_to_string(Image.open(image_path), lang='rus')
+                os.remove(image_path)
+                title.append(lines.replace('\n\n', ''))
+                break
+
+        tables_file = tabula.read_pdf(file_path, pages='3', multiple_tables= False, lattice= True) 
+        aatable = tables_file[0]
+
+        aatable.columns = aatable.iloc[0]
+        uch_plan = aatable.loc[:, ['Наименование', 'По\rплану']]
+        print(uch_plan.columns)
+
+
+
+
+
+  
+
+        bd_name = "OTHENASHKOTORYNANEBESAH.db"
+        bd = os.path.join("resources", bd_name )
+        conn = sqlite3.connect(bd)
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT FILE_NAME FROM FILES_OP WHERE id_ABOUT_OP = {self.ch} ')
+        f_name = [row[0] for row in cursor.fetchall()] 
+        conn.close()
+
+
+
+        for i in f_name:
+              if i == os.path.basename(file_path):
+                        print(i == os.path.basename(file_path))
+                        conn = sqlite3.connect(bd)
+                        cursor = conn.cursor()
+                        cursor.execute('''
+                                UPDATE  FILES_OP
+                                SET TITLE_FILE = ? 
+                                WHERE FILE_NAME = ? ;
+                                ''', (  title[0]  , i ))
+                        conn.commit()
+                        conn.close()
+                
+
+
+
+        # self.fitkbBTN.clicked.connect(lambda: self.ch_fac = 1)
+        # self.faigBTN.clicked.connect(lambda: self.ch_fac = 2)
+        # self.fmatBTN.clicked.connect(lambda: self.ch_fac = 3)
+        # self.fissBTN.clicked.connect(lambda: self.ch_fac = 4)
+        # self.rteBTN.clicked.connect(lambda:self.ch_fac = 5)
+
+
+        self.SP_1.clicked.connect(lambda: self.setaboutOP(1))
+        self.SP_2.clicked.connect(lambda: self.setaboutOP(2))
+        self.SP_3.clicked.connect(lambda: self.setaboutOP(3))
+        self.SP_4.clicked.connect(lambda: self.setaboutOP(4))
+        self.SP_5.clicked.connect(lambda: self.setaboutOP(5))
+        self.SP_6.clicked.connect(lambda: self.setaboutOP(6))
+        self.SP_7.clicked.connect(lambda: self.setaboutOP(7))
+        self.SP_8.clicked.connect(lambda: self.setaboutOP(8))
+        self.SP_9.clicked.connect(lambda: self.setaboutOP(9))
+        self.SP_10.clicked.connect(lambda: self.setaboutOP(10))
+        self.SP_11.clicked.connect(lambda: self.setaboutOP(11))
+        self.SP_12.clicked.connect(lambda: self.setaboutOP(12))
+        self.SP_13.clicked.connect(lambda: self.setaboutOP(13))
+
+
+        self.uchplansBTN.clicked.connect(lambda: self.downloadFiles(1))
+        self.annotrabprogrdiscpraBTN.clicked.connect(lambda: self.downloadFiles(2))
+        self.kalendplanvrBTN.clicked.connect(lambda: self.downloadFiles(3))
+        self.rabochprogrdicsmodulBTN.clicked.connect(lambda: self.downloadFiles(4))
+        self.rabprogrvospBTN.clicked.connect(lambda: self.downloadFiles(5))
+        self.progrpraktBTN.clicked.connect(lambda: self.downloadFiles(6))
+        self.obrprogrBTN.clicked.connect(lambda: self.downloadFiles(7))
+        self.metodichdocumBTN.clicked.connect(lambda: self.downloadFiles(8))

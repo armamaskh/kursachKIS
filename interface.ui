@@ -1,0 +1,2283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1415</width>
+    <height>630</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Lucida Console</family>
+    <pointsize>10</pointsize>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+	border: none;
+	background-color: transparent;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+	color: rgb(91, 88, 66) ;
+font-family: &quot;Lucida Console&quot;;
+font-size: 10pt;
+	}
+#centralwidget{background-color: rgb(248, 242, 179); border:10px solid #000000; border-radius: 5px;}
+
+#label{border-right: 1px solid  #000000; font-size: 14pt;}
+#leftmenu {border-right: 1px solid #000000;}
+#rightmenu{border-left: 1px solid #000000;}
+#mainbody{border-top: 1px solid #000000;}
+#frame_10{border-top: 1px solid #000000; border-bottom: 1px solid #000000;}
+#frame_11, #frame_12, #frame_13{border-top: 1px solid #000000; border-bottom: 1px solid #000000;}
+
+
+#uchplans , #annotrabprogrdiscpra, #obrprogr  , #rabochprogrdicsmodul , #kalendplanvr  , #rabprogrvosp ,#metodichdocum , #progrprakt{border-right: 1px solid #000000; border-left: 1px solid #000000; }
+#uchplansBTN , #annotrabprogrdiscpraBTN, #obrprogrBTN  , #rabochprogrdicsmodulBTN , #kalendplanvrBTN  , #rabprogrvospBTN ,#metodichdocumBTN , #progrpraktBTN{text-align: center; font-size: 8pt; }
+
+
+QPushButton{
+	text-align: left;
+	padding: 5px 3px;}
+
+
+ #label_3, #label_6, #label_4{
+				padding: 5px 3px;
+				line-height: 1pt;}
+ #label_2, #label_5, #label_7{ font-weight: bold;}
+#bar{	background-color: rgb(0, 0, 0)}
+#label_8{padding-left: 6px; border-radius: 10px;}
+
+#homeBTN{  border-left: 2px solid  rgb(79, 77, 57);
+				   font-weight: bold;}
+
+#SP_1, #SP_2, #SP_3, #SP_4, #SP_5, #SP_6, #SP_7, #SP_8, #SP_9, #SP_10, #SP_11, #SP_12, #SP_13{
+	
+	font: 9pt &quot;Lucida Console&quot;;
+} 
+
+
+
+
+
+
+
+
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1415</width>
+     <height>630</height>
+    </size>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>5</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="bar" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>12</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>11</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="collapse">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="QSS/QSS_Resources.qrc">
+              <normaloff>:/icons/Icons/toolbar_separator_vertical.png</normaloff>:/icons/Icons/toolbar_separator_vertical.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="close">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="QSS/QSS_Resources.qrc">
+              <normaloff>:/icons/Icons/toolbar_separator_vertical.png</normaloff>:/icons/Icons/toolbar_separator_vertical.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="MAIN" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="header" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>50</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1400</width>
+           <height>150</height>
+          </size>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Lucida Console</family>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>VSTUMAPPER</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Lucida Console</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>  1.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select the faculty of state &lt;/p&gt;&lt;p&gt;of Voronezh State University &lt;/p&gt;&lt;p&gt;for futher analisys&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>  2.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Lucida Console</family>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select the faculty speciality &lt;/p&gt;&lt;p&gt;you have chosen &lt;/p&gt;&lt;p&gt;for analysis&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>  3.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>330</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select the educational program&lt;/p&gt;&lt;p&gt;file related to this &lt;/p&gt;&lt;p&gt;specialty&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="mainbody" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QCustomSlideMenu" name="leftmenu" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>0</width>
+              <height>1000</height>
+             </size>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QWidget" name="widget" native="true">
+               <property name="minimumSize">
+                <size>
+                 <width>280</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>280</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Minimum</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>70</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QFrame" name="frame_2">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                   <property name="spacing">
+                    <number>5</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>50</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QPushButton" name="homeBTN">
+                     <property name="font">
+                      <font>
+                       <family>Lucida Console</family>
+                       <pointsize>10</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="autoFillBackground">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Home</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="facultiesBTN">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Faculties</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="specialtiesBTN">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Specialties</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="analysisBTN">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Analysis</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="all_filesBTN">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>All list files</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Expanding</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QFrame" name="frame_3">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_4">
+                   <property name="spacing">
+                    <number>5</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>50</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QPushButton" name="signinBTN">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Sign in</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="settingBTN">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>Setting</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>10</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="mainbodycontent" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>500</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>444444</width>
+              <height>1000</height>
+             </size>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QCustomQStackedWidget" name="mainPages">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>1</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Lucida Console</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <widget class="QWidget" name="homepage">
+                <layout class="QVBoxLayout" name="verticalLayout_8">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>10</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>15</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_8">
+                   <property name="minimumSize">
+                    <size>
+                     <width>1100</width>
+                     <height>480</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>1488</width>
+                     <height>496</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="pixmap">
+                    <pixmap>QSS/title.png</pixmap>
+                   </property>
+                   <property name="scaledContents">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="facultiespage">
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QScrollArea" name="scrollArea_2">
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>165</width>
+                      <height>690</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_10">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>10</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QFrame" name="frame_4">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>165</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>165</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_5">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="fitkbBTN">
+                          <property name="minimumSize">
+                           <size>
+                            <width>70</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="locale">
+                           <locale language="Russian" country="Russia"/>
+                          </property>
+                          <property name="text">
+                           <string> ФИТКБ</string>
+                          </property>
+                          <property name="checkable">
+                           <bool>true</bool>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>165</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>165</height>
+                           </size>
+                          </property>
+                          <property name="html">
+                           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Console'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Факультет ИТ-технологий был создан в университете в 2013 году, объединив подготовку специалистов в области информационных технологий. Факультет предлагает обучение по направлениям &amp;quot;Информатика и вычислительная техника&amp;quot;, &amp;quot;Информационные системы и технологии&amp;quot;, а также специальности &amp;quot;Компьютерная безопасность&amp;quot;, &amp;quot;Информационная безопасность телекоммуникационных систем&amp;quot; и &amp;quot;Информационная безопасность автоматизированных систем&amp;quot;. &lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Студенты направления &amp;quot;Информатика и вычислительная техника&amp;quot; получают знания в области администрирования сетей и разработки аппаратных и программных средств для автоматизированных систем. Направление &amp;quot;Информационные системы и технологии&amp;quot; подготавливает специалистов для решения теоретических и практических задач в информационных системах с использованием современных технологий.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_5">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>150</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>150</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_6">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="faigBTN">
+                          <property name="minimumSize">
+                           <size>
+                            <width>70</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="locale">
+                           <locale language="Russian" country="Russia"/>
+                          </property>
+                          <property name="text">
+                           <string> ФАИГ</string>
+                          </property>
+                          <property name="checkable">
+                           <bool>true</bool>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit_2">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="html">
+                           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Console'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Архитектурный факультет, созданный в 1972 году, является одним из ведущих факультетов университета и готовит архитекторов, архитекторов-дизайнеров, архитекторов-реставраторов, градостроителей по программам бакалавриата и магистратуры в областях &amp;quot;Архитектура&amp;quot;, &amp;quot;Дизайн архитектурной среды&amp;quot;, &amp;quot;Реконструкция и реставрация архитектурного наследия&amp;quot;, &amp;quot;Градостроительство&amp;quot;.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Факультет состоит из 6 кафедр, на которых работают 17 профессоров, включая 3 &amp;quot;Заслуженных архитектора России&amp;quot;, лауреатов Государственных премий России, кандидатов наук, доцентов. Большинство преподавателей являются членами профессиональных творческих союзов и известными воронежскими архитекторами, авторами крупных построек, лауреатами премий федерального и международного уровня.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_8">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>130</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>130</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_12">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="fmatBTN">
+                          <property name="minimumSize">
+                           <size>
+                            <width>70</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="locale">
+                           <locale language="Russian" country="Russia"/>
+                          </property>
+                          <property name="text">
+                           <string> ФМАТ</string>
+                          </property>
+                          <property name="checkable">
+                           <bool>true</bool>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit_4">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>130</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>130</height>
+                           </size>
+                          </property>
+                          <property name="html">
+                           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Console'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Факультет был основан путем слияния авиационного, автоматизации и роботизации машиностроения и физико-технического факультетов Воронежского государственного технического университета.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Факультет готовит специалистов для авиационной, ракетно-космической, нефтегазовой и машиностроительной отраслей. Подготовка кадров обеспечивается высоким творческим и научным потенциалом профессорско-преподавательского состава кафедр, включающего руководителей и ведущих специалистов базовых предприятий региона.  Обучаясь у нас, вы можете стать настоящими профессионалами, которые обеспечат инновационной России экономическую мощь.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_7">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>135</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>135</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_11">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="fissBTN">
+                          <property name="minimumSize">
+                           <size>
+                            <width>70</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="locale">
+                           <locale language="Russian" country="Russia"/>
+                          </property>
+                          <property name="text">
+                           <string> ФИСС</string>
+                          </property>
+                          <property name="checkable">
+                           <bool>true</bool>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit_5">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>135</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>135</height>
+                           </size>
+                          </property>
+                          <property name="html">
+                           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Console'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Факультет инженерных систем и сооружений - ведущий многопрофильный факультет университета с богатой историей и традициями. Он предлагает обучение по различным направлениям и специальностям, включая строительство, проектирование и эксплуатацию инженерных систем и сооружений.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;На факультете созданы крупнейшие лабораторные центры, оснащенные современным оборудованием и материалами, что позволяет студентам активно участвовать в научной деятельности и разработках, особенно в условиях импортозамещения. Также на факультете открыта лаборатория виртуальной реальности, где студенты разрабатывают цифровой контент и получают дополнительные цифровые компетенции.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_6">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>110</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>110</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_9">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="rteBTN">
+                          <property name="minimumSize">
+                           <size>
+                            <width>70</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="locale">
+                           <locale language="Russian" country="Russia"/>
+                          </property>
+                          <property name="text">
+                           <string> РТЭ</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit_6">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>110</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>110</height>
+                           </size>
+                          </property>
+                          <property name="html">
+                           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Console'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Факультет радиотехники и электроники готовит специалистов в области радиотехники, электроники, информационных систем и технологий, компьютерной безопасности. Факультет имеет крупнейшие лабораторные центры, включая лабораторию виртуальной реальности. Выпускники работают в различных организациях, включая крупные международные компании. Факультет предлагает обучение по бакалавриату, магистратуре и аспирантуре, а также военное обучение. Факультет имеет богатую историю и традиции, а его преподаватели - авторитетные ученые и профессионалы в области радиотехники и электроники.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="specialtiespage">
+                <layout class="QVBoxLayout" name="verticalLayout_11">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QScrollArea" name="scrollArea">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <widget class="QWidget" name="scrollAreaWidgetContents">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>1120</width>
+                      <height>823</height>
+                     </rect>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_13">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QFrame" name="frame_9">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_12">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="labeeel">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>  SPECIALTIES</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="TITLE_FACULTY_2">
+                          <property name="text">
+                           <string>  fitkb</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_10">
+                       <property name="minimumSize">
+                        <size>
+                         <width>1120</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>1400</width>
+                         <height>400</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_14">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>5</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="SP_1">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_2">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_3">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_4">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_5">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_6">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_7">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_8">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_9">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_10">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_11">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_12">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="SP_13">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="text">
+                           <string>PushButton</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_12">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_7">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QWidget" name="uchplans" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>357</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_27">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="uchplansBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="layoutDirection">
+                              <enum>Qt::LeftToRight</enum>
+                             </property>
+                             <property name="text">
+                              <string>УЧЕБНЫЙ ПЛАН</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="obrprogr" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_28">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="obrprogrBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="text">
+                              <string>ОБРАЗОВАТЕЛЬНАЯ ПРОГРАММА</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="rabochprogrdicsmodul" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_32">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="rabochprogrdicsmodulBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="text">
+                              <string>РАБОЧИЕ ПРОГРАММЫ 
+ДИСЦИПЛИН(МОДУЛЕЙ)</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="progrprakt" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_37">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="progrpraktBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="text">
+                              <string>ПРОГРАММЫ
+ПРАКТИК</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_11">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_8">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QWidget" name="annotrabprogrdiscpra" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_30">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="annotrabprogrdiscpraBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="text">
+                              <string>АННОТАЦИИ К РАБОЧИМ 
+ПРОГРАММАМ ДИСЦИПЛИН 
+И ПРАКТИКИ</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="kalendplanvr" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_29">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="kalendplanvrBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="text">
+                              <string>КАЛЕНДАРНЫЙ ПЛАН 
+ВОСПИТАТЕЛЬНОЙ РАБОТЫ</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="rabprogrvosp" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_33">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="rabprogrvospBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="text">
+                              <string>РАБОЧАЯ ПРОГРАММА
+ВОСПИТАНИЯ</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="metodichdocum" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>280</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_38">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="metodichdocumBTN">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="text">
+                              <string>МЕТОДИЧЕСКИЕ И
+ИНЫЕ ДОКУМЕНТЫ</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QTextEdit" name="textEdit_3">
+                       <property name="minimumSize">
+                        <size>
+                         <width>1120</width>
+                         <height>370</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>1395</width>
+                         <height>370</height>
+                        </size>
+                       </property>
+                       <property name="verticalScrollBarPolicy">
+                        <enum>Qt::ScrollBarAlwaysOff</enum>
+                       </property>
+                       <property name="readOnly">
+                        <bool>true</bool>
+                       </property>
+                       <property name="html">
+                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Console'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="analysispage">
+                <layout class="QVBoxLayout" name="verticalLayout_15">
+                 <item>
+                  <widget class="QTextEdit" name="vivod"/>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="alllistfilepage">
+                <layout class="QVBoxLayout" name="verticalLayout_25">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QScrollArea" name="scrollArea_3">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>100</width>
+                      <height>30</height>
+                     </rect>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="signinpage">
+                <widget class="QLabel" name="label_14">
+                 <property name="geometry">
+                  <rect>
+                   <x>740</x>
+                   <y>220</y>
+                   <width>131</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>signinapi</string>
+                 </property>
+                </widget>
+               </widget>
+               <widget class="QWidget" name="sattingpage">
+                <widget class="QLabel" name="label_15">
+                 <property name="geometry">
+                  <rect>
+                   <x>750</x>
+                   <y>210</y>
+                   <width>141</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>satting</string>
+                 </property>
+                </widget>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="rightmenu" native="true">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>0</width>
+              <height>1000</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomSlideMenu</class>
+   <extends>QWidget</extends>
+   <header location="global">Custom_Widgets.QCustomSlideMenu.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QCustomQStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header location="global">Custom_Widgets.QCustomQStackedWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="QSS/QSS_Resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>close</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1483</x>
+     <y>9</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1496</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

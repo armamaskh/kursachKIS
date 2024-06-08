@@ -1,0 +1,145 @@
+{
+    "QMainWindow": [
+        {
+            "tittle": "VSTUMAPPER"
+        }
+    ],
+    "QSettings": [
+        {
+            "ThemeSettings": [
+                {
+                    "CustomTheme": []
+                }
+            ],
+            "AppSettings": {
+                "OrginizationName": "VSTUMAPPER",
+                "ApplicationName": "VSTUMAPPER Company",
+                "OrginizationDormain": "VSTUMAPPER.org"
+            }
+        }
+    ],
+    "QPushButtonGroup": [
+        {
+            "Buttons": [
+                    "homeBTN",
+                    "facultiesBTN",
+                    "specialtiesBTN",
+                    "analysisBTN",
+                    "all_filesBTN",
+                    "settingBTN",
+                    "signinBTN"
+            ],
+            "Style":[
+                {
+                "Active": "border-left: 2px solid rgb(79, 77, 57); font-weight: bold;",
+                "NotActive": "background-color: transparent; border: none;font-weight: normal;"
+                }
+        ]
+        },
+
+		{
+			"Buttons": [
+				"fitkbBTN",
+				"faigBTN",
+				"rteBTN",
+				"fissBTN",
+				"fmatBTN"
+			],
+			"Style":[{
+				"Active": "font-weight: bold; ",
+				"NotActive": " font-weight: normal;"
+			}]
+		},
+		{
+			"Buttons": [
+				"SP_1",
+				"SP_2",
+				"SP_3",
+				"SP_4",
+				"SP_5",
+				"SP_6",
+				"SP_7",
+				"SP_8",
+				"SP_9",
+				"SP_10",
+				"SP_11",
+				"SP_12",
+				"SP_13"
+			],
+			"Style":[{
+				"Active": "border-right : 2px solid  #abab67; font-weight: bold; ",
+				"NotActive": "border: none; font-weight: normal;"
+			}]
+		}
+    ],
+    "QCustomSlideMenu": [{
+		"name": "leftmenu",
+		"defaultSize": [{
+			"width": 0,
+			"height": "parent"
+		}],
+		"collapsedSize": [{
+			"width": 0,
+			"height":  "parent"
+		}],
+		"expandedSize": [{
+			"width": 280,
+			"height": "parent"
+		}],
+		"toggleButton": [{
+			"buttonName": "collapse",
+			"icons": [{
+				"whenMenuIsCollapsed": ":/icons/Icons/toolbar_separator_vertical.png",
+				"whenMenuIsExpanded": ":/icons/Icons/toolbar_move_vertical.png"
+			}]
+		}],
+		"menuTransitionAnimation": [{
+			"animationDuration": 500,
+			"animationEasingCurve": "Linear"
+		
+		}]
+	}],
+    "QCustomQStackedWidget":[
+		{
+			"name":"mainPages",
+			"transitionAnimation":[
+				{
+					"fade":[
+						{
+							"active": false,
+							"duration":1000,
+							"easingCurve": "Linear"
+						}
+					],
+					"slide":[
+						{
+							"active":true,
+							"duration": 10,
+							"direction": "vertical",
+							"easingCurve": "Linear"
+						}
+					]
+				}
+			],
+			"navigation":[
+				{
+					"navigationButtons":[
+						{
+							"homeBTN": "homepage",
+                            "facultiesBTN": "facultiespage",
+                            "specialtiesBTN": "specialtiespage",
+							"analysisBTN": "analysispage",
+                            "all_filesBTN": "alllistfilepage",
+                            "signinBTN": "signinpage",
+							"settingBTN": "sattingpage"
+							
+						}
+					]
+				}
+			]
+	
+		}
+	]
+
+
+}
